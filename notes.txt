@@ -1,0 +1,18 @@
+maven web project 
+
+servlet-api
+spring-web-mvc-5 {core,context,bean,el,web,web-mvc,XX} 
+
+
+request ---> tomcat server --> life cycle -> 
+request ---> tomcat server --> iocontainer->life cycle ->??
+
+request ---> tomcat server -->DispatcherServlet -> IOC{spring.xml} -> life cycle -> 
+ 
+WEB-INF/spring.xml 
+
+init-param -> web.xml 
+
+
+spring boot --> zero configuration --> properties 
+ 
