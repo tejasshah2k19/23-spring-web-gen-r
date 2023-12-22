@@ -5,7 +5,7 @@ spring-web-mvc-5 {core,context,bean,el,web,web-mvc,XX}
 
 
 request ---> tomcat server --> life cycle -> 
-request ---> tomcat server --> iocontainer->life cycle ->??
+request ---> tomcat server --> ioc container->life cycle ->??
 
 request ---> tomcat server -->DispatcherServlet -> IOC{spring.xml} -> life cycle -> 
  
@@ -54,9 +54,13 @@ logic -> method
 		
 
 
+-----------------------------------
+ Signup -> form 
+ 			FirstName 
+ 			Email
+ 			Password 
 
-
-
+data read -> bean 
 
 
 
