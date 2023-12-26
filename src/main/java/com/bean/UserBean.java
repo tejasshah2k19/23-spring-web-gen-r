@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class UserBean {
 
-	@NotBlank
+	@NotBlank(message="Please Enter FirstName")
 	private String firstName;
 
 	@NotBlank

@@ -21,5 +21,4 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean class="com.controller.SessionController" id="sessionController"></bean> -->
 </beans>
