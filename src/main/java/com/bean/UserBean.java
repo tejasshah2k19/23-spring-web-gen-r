@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class UserBean {
 
+	Integer userId; 
+	
 	@NotBlank(message="Please Enter FirstName")
 	private String firstName;
 
@@ -36,5 +38,15 @@ public class UserBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	
 
 }
