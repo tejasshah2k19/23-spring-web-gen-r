@@ -63,11 +63,75 @@ logic -> method
 data read -> bean 
 
 
+_________ lib we used to validate form data? 
+	hibernate-validator 
+	
+in which folder we created our JSP ?
+	WEB-INF/views 
+
+
+________ annotation is used to mark controller in spring web ?
+	@Controller 
+	
+________ annotation is used to create get request in controller?
+	@GetMapping 
+	
+@PostMapping -> for post request 
+
+
+servlet -> data -> jsp 
+	
+--------------------------------------------------------------
+
+get read 
+valiadte 
+next jsp pass print 
+
+--------------------------------------------------
+database -> save insert,update,delete,select 
+
+
+steps for jdbc in spring 
+1) jar / dep / lib 
+	1.1) mysql-connector 
+	1.2) spring-jdbc 
+
+2) DbConnection -- DriverManagerDataSource 
+	configuration -> url userName password 
+	spring.xml 
+
+3) 	Statement - PreparedStatment ::  JdbcTemplate 
+-----------------------------------------------------	
+How to open DbConnection 
+	we have to create bean of DriverManagerDataSource in spring.xml => DbConnection {step2} 
+	we have to create bean of JdbcTemplate in spring.xml => Statement/PreparedStatement 
+--------------------------------------------------------------
+
+Player:- 
+	playerId 
+	name 
+	ability 
+	
+
+create table players (
+	playerId integer primary key auto_increment, 
+	name varchar(30),
+	ability varchar(30)
+);
+
+now create PlayerBean 
+
+create PlayerController -> 
+		1) method to open NewPlayer.jsp 
+		2) method to save player info 
 
 
 
 
-		 
+
+
+
+
 
 
  

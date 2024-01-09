@@ -21,4 +21,18 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="dataSource">
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/spring"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+
+	<bean class="org.springframework.jdbc.core.JdbcTemplate" id="stmt">
+		<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+	</bean>
+
 </beans>
