@@ -125,7 +125,11 @@ create PlayerController ->
 		1) method to open NewPlayer.jsp 
 		2) method to save player info 
 
-
+---------------------------------------------------
+how to jstl ? 
+1) add jar --> maven  
+2) jsp -> taglib 
+----------------------------
 
 
 

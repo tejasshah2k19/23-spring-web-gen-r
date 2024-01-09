@@ -2,6 +2,7 @@ package com.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,12 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bean.UserBean;
+import com.dao.UserDao;
 
 @Controller
 public class SessionController {
 
 	// jsp-> secure -> using method we can access jsp
 
+	@Autowired
+	UserDao userDao;
+	
 	@GetMapping("/signup")
 	public String signup(Model model) {
 		UserBean user = new UserBean(); 
@@ -49,6 +54,8 @@ public class SessionController {
 			return "Signup";
 		} else {
 			// 
+//			dao
+			userDao.addUser(user);//insert 
 			return "Login";
 		}
 		// spring - hibernate
