@@ -9,9 +9,27 @@
 </head>
 <body>
 	<h2>List Users</h2>
-	<c:forEach items="${users}" var="u">
-		${u.userId } | ${u.firstName}<br> 
-	</c:forEach>
+
+	<table border="1">
+		<tr>
+			<th>UserId</th>
+			<th>FirstName</th>
+			<th>Action</th>
+		</tr>
+		<c:forEach items="${users}" var="u">
+			<tr>
+				<td>${u.userId }</td>
+				<td>${u.firstName}</td>
+				<td><a href="deleteuser?userId=${u.userId}">Delete</a>
+					|
+					<a href="viewuser?userId=${u.userId}">View</a>
+				</td>
+			</tr>
+		</c:forEach>
+
+
+	</table>
+
 
 </body>
 </html>

@@ -28,8 +28,11 @@ public class UserDao {
 
 	public List<UserBean> getAllUsers() {
 		// query
-		return stmt.query("select * from users2", new BeanPropertyRowMapper<UserBean>(UserBean.class));
-
+		List<UserBean> users = stmt.query("select * from users2", new BeanPropertyRowMapper<UserBean>(UserBean.class));
+		return users;
 	}
 
+	public void deleteUser(Integer userId) {
+		stmt.update("delete from users2 where userId = ?",userId);
+	}
 }
