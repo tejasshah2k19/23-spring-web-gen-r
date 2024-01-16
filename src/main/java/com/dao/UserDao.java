@@ -35,4 +35,13 @@ public class UserDao {
 	public void deleteUser(Integer userId) {
 		stmt.update("delete from users2 where userId = ?",userId);
 	}
+	
+	public UserBean getUserById(Integer userId) {
+		return stmt.queryForObject("select * from users2 where userId = ?", new BeanPropertyRowMapper<UserBean>(UserBean.class),userId);
+	}
+
+	public void updateUser(UserBean user) {
+		stmt.update("update users2 set firstName = ? where userId  = ?",user.getFirstName(),user.getUserId());
+		
+	}
 }
