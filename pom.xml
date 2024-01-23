@@ -60,6 +60,15 @@
 			<version>1.2</version>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>23-spring-web-gen-r2</finalName>

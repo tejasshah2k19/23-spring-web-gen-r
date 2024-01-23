@@ -129,7 +129,24 @@ create PlayerController ->
 how to jstl ? 
 1) add jar --> maven  
 2) jsp -> taglib 
-----------------------------
+-----------------------------------------------------
+
+file upload -> 
+	1) commons file upload 
+	2) commons-io
+	
+spring web file upload -> config -> spring.xml 
+<bean id="multipartResolver"   
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
+
+
+form -> input type="file" -> method="post" encType="multipart/form-data"
+
+controller -> MultipartFile file
+			FileUtils -> 
+			
+-------------------------------------------------			 
+
 
 
 

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2>Signup</h2>
-	<s:form action="saveuser" method="post" modelAttribute="user">
+	<s:form action="saveuser" method="post" modelAttribute="user" enctype="multipart/form-data">
 		FirstName: 
 		<s:input path="firstName" />
 		<s:errors path="firstName"></s:errors>
@@ -27,6 +27,10 @@
 
 		<br>
 		<br>
+		
+		ProfilePic: <input type="file" name="profilePic">
+		<br><br>
+		
 		<input type="Submit" value="Signup" />
 	</s:form>
 </body>
