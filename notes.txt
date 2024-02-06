@@ -145,11 +145,26 @@ form -> input type="file" -> method="post" encType="multipart/form-data"
 controller -> MultipartFile file
 			FileUtils -> 
 			
--------------------------------------------------			 
+------------------------------------------------------------------			 
 
+signup
+->	fn ln em pwd profile 
+		webapp -> images -> email -> profile 
+	
 
+login
+->
+		email password -> db authenticate -> home -> profilePic
 
+------------------------------------------------------------------------
 
+how to encrypt password ?
+
+	1) pom.xml 
+				spring crypto -> lib
+				
+				 
+	2) BcryptPasswordEncoder 
 
 
 

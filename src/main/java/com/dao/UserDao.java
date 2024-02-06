@@ -20,8 +20,8 @@ public class UserDao {
 
 	public void addUser(UserBean user) {
 		// db -> insert update delete
-		stmt.update("insert into users2 (firstName,email,password) values (?,?,?)", user.getFirstName(),
-				user.getEmail(), user.getPassword()); // insert update delete
+		stmt.update("insert into users2 (firstName,email,password,profile) values (?,?,?,?)", user.getFirstName(),
+				user.getEmail(), user.getPassword(), user.getProfile()); // insert update delete
 
 		System.out.println("USER ADDED ");
 	}
@@ -33,15 +33,26 @@ public class UserDao {
 	}
 
 	public void deleteUser(Integer userId) {
-		stmt.update("delete from users2 where userId = ?",userId);
+		stmt.update("delete from users2 where userId = ?", userId);
 	}
-	
+
 	public UserBean getUserById(Integer userId) {
-		return stmt.queryForObject("select * from users2 where userId = ?", new BeanPropertyRowMapper<UserBean>(UserBean.class),userId);
+		return stmt.queryForObject("select * from users2 where userId = ?",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class), userId);
 	}
 
 	public void updateUser(UserBean user) {
-		stmt.update("update users2 set firstName = ? where userId  = ?",user.getFirstName(),user.getUserId());
-		
+		stmt.update("update users2 set firstName = ? where userId  = ?", user.getFirstName(), user.getUserId());
+
+	}
+
+	public UserBean getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		try {
+			return stmt.queryForObject("select * from users2 where email = ?",
+					new BeanPropertyRowMapper<UserBean>(UserBean.class), email);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }

@@ -42,4 +42,9 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
 
+
+	<mvc:resources location="/images/"
+		mapping="/images/**" />
+
+
 </beans> 

@@ -33,5 +33,6 @@
 		
 		<input type="Submit" value="Signup" />
 	</s:form>
-</body>
+	<br><br>
+ </body>
 </html>

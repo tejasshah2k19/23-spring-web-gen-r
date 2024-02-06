@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,9 @@ public class SessionController {
 
 	@Autowired
 	UserDao userDao;
+
+	@Autowired
+	BCryptPasswordEncoder encoder;
 
 	@GetMapping("/signup")
 	public String signup(Model model) {
@@ -48,11 +52,17 @@ public class SessionController {
 		System.out.println(profilePic.getSize());
 
 		try {
-			String masterPath = "C:\\Krishna\\oxygen workspace\\23-spring-web-gen-r2\\src\\main\\webapp\\images";
+			String masterPath = "C:\\jee\\23-spring-web-gen-r\\src\\main\\webapp\\images";
 
-			File f = new File(masterPath, profilePic.getOriginalFilename());
+			File userFolder = new File(masterPath, user.getEmail());
+			userFolder.mkdir(); // will create folder if does not exists
+
+			File f = new File(userFolder, profilePic.getOriginalFilename());
 
 			FileUtils.writeByteArrayToFile(f, profilePic.getBytes());
+
+			user.setProfile("images/" + user.getEmail() + "/" + profilePic.getOriginalFilename());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,6 +83,13 @@ public class SessionController {
 		} else {
 			//
 //			dao
+
+			// password encrypt ->
+			// Bcrypt
+			String encPwd = encoder.encode(user.getPassword());
+
+			user.setPassword(encPwd);
+
 			userDao.addUser(user);// insert
 			return "Login";
 		}
@@ -81,4 +98,23 @@ public class SessionController {
 		// db save
 
 	}
+
+	@PostMapping("/authenticate")
+	public String authenticate(UserBean user) {
+		// jack@gmail.com
+		UserBean userDb = userDao.getUserByEmail(user.getEmail());
+
+		if (userDb == null) {
+			return "Login";
+		} else {
+			if (encoder.matches(user.getPassword(), userDb.getPassword()) == true) {
+				return "Home";
+			} else {
+				return "Login";
+			}
+
+		}
+
+	}
+
 }

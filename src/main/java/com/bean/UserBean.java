@@ -15,6 +15,8 @@ public class UserBean {
 	@NotBlank
 	private String password;
 
+	private String profile;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -46,6 +48,15 @@ public class UserBean {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+	
 	
 	
 
